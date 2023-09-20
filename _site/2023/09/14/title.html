@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baseer</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         margin: 0%;
@@ -33,7 +42,7 @@
       }
 
       .container p:not(.date, .title, .author) {
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.5em;
       }
 
@@ -47,6 +56,7 @@
         padding: 0.1rem 0.3rem;
         border-radius: 3px;
         text-transform: capitalize;
+        margin-right: 0.4rem;
       }
 
       .tags {
@@ -661,9 +671,14 @@
           padding: 0;
         "
       >
-        <p class="category" style="color: white; margin: 0">
-          blog
-        </p>
+        <!-- <p class="category" style="color: white; margin: 0">
+          
+        </p> -->
+
+        
+        <p class="category" style="color: white">ai</p>
+        
+
         <p class="date">14 Sep 2023</p>
       </div>
       <h1 class="title">Title</h1>
@@ -684,17 +699,15 @@
 
 <p>Vulputate ut pharetra sit amet aliquam id diam maecenas ultricies. Eget velit aliquet sagittis id. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Lectus arcu bibendum at varius vel. Elit eget gravida cum sociis natoque penatibus et magnis. Sit amet mauris commodo quis imperdiet massa. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Diam sit amet nisl suscipit adipiscing bibendum est. In cursus turpis massa tincidunt. Ornare suspendisse sed nisi lacus. Tellus orci ac auctor augue. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. In mollis nunc sed id. Aenean et tortor at risus viverra adipiscing at in tellus. Ut ornare lectus sit amet est placerat in egestas erat. Pulvinar proin gravida hendrerit lectus a. Feugiat pretium nibh ipsum consequat nisl vel pretium. Ut etiam sit amet nisl purus in mollis. Est ultricies integer quis auctor elit sed vulputate.</p>
 </div>
-      <hr style="margin-top: 2rem" />
-      <div class="tags">
+      <!-- <hr style="margin-top: 2rem" /> -->
+      <!-- <div class="tags">
         <p>Tags :</p>
          
-        <p class="tag">tag1</p>
-        
-        <p class="tag">tag2</p>
-         
+        <p class="tag">ai</p>
+          -->
 
-        <!-- <p class="tag">tag1, tag2</p> -->
-        <!-- {blog.attributes.tags &&
+      <!-- <p class="tag">ai, </p> -->
+      <!-- {blog.attributes.tags &&
       blog.attributes.tags.map((tag: string, index: number) => {
         return (
           <p class={styles.tag} key={`${tag} ${index}`}>
@@ -702,7 +715,7 @@
           </p>
         );
       })} -->
-      </div>
+      <!-- </div> -->
     </div>
     <style>
     .footer {

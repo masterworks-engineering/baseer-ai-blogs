@@ -1,0 +1,292 @@
+<style>
+    body {
+      margin: 0%;
+      padding: 0%;
+    }
+  
+    /* ----- */
+    .blogs {
+      width: 50%;
+      margin: 2rem auto 5rem;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .blogs p,
+    .blogs b {
+      font-family: "Poppins", sans-serif;
+    }
+  
+    .blogs h1,
+    .blogs h2,
+    .blogs h3,
+    .blogs h4,
+    .blogs h5,
+    .blogs h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+  
+    .title {
+      margin-bottom: 0.8rem;
+      margin-top: 0.2rem;
+    }
+  
+    .author {
+      margin-top: 0.75rem;
+    }
+  
+    .date {
+      margin-right: 1rem;
+    }
+  
+    .category {
+      background-color: rgb(29, 105, 105);
+      padding: 0.3rem 0.5rem;
+      /* padding: 10px; */
+      border-radius: 3px;
+      text-transform: capitalize;
+      margin-right: 0.4rem;
+    }
+  
+    .pagination {
+      text-align: center;
+    }
+  
+    .categorySelector {
+      width: 30%;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    .categorySelectorChild {
+      padding: 0.5rem;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+  
+    .blogsChild {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem auto;
+      padding: 2rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 5px;
+      /* width: 100%; */
+    }
+  
+    .blogsChild p {
+      text-align: justify;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  
+    .blogsChild:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+  
+    @media screen and (max-width: 980px) {
+      .blogs {
+        width: 80%;
+      }
+  
+      .categorySelector {
+        width: 70%;
+      }
+    }
+  
+    @media screen and (max-width: 640px) {
+      .blogsChild p,
+      .blogsChild b {
+        font-size: 0.8em;
+      }
+      .blogsChild h2 {
+        font-size: 1.4em;
+      }
+  
+      .categorySelectorChild {
+        font-size: 0.7rem;
+      }
+    }
+  
+    @media screen and (max-width: 440px) {
+      .categorySelector {
+        width: 90%;
+      }
+    }
+  
+    /* --Category Selector CSS-- */
+    .category-filter {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .category-filter ul {
+      list-style: none;
+      padding: 0
+    }
+  
+    .category-filter li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  
+    .category-filter label {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    .category-filter input[type="radio"] {
+      display: none;
+    }
+  
+    .category-filter input[type="radio"]:checked + label {
+      background-color: #06A0FF; /* Change this to your desired selected color */
+      color: #fff;
+    }
+  
+    /* -------- */
+  /* Pagination Container */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  /* Pagination Links */
+  .pagination a,
+  .pagination span {
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #06A0FF; /* Blue text color for pagination links */
+    background-color: #f8f9fa; /* Light gray background color for pagination links */
+    border: 1px solid #dee2e6; /* Light gray border for pagination links */
+    margin: 0 5px;
+    border-radius: 4px; /* Rounded corners for pagination links */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Pagination Links: Hover State */
+  .pagination a:hover {
+    background-color: #06A0FF; /* Darker blue background color for pagination links on hover */
+    color: #fff; /* White text color for pagination links on hover */
+    border-color: #06A0FF; /* Darker blue border for pagination links on hover */
+  }
+  
+  /* Pagination Links: Active Page */
+  .pagination em {
+    background-color: #06A0FF; /* Blue background color for the active page number */
+    color: #fff; /* White text color for the active page number */
+    border-color: #06A0FF; /* Blue border for the active page number */
+    padding: 10px 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+  }
+  
+  /* Previous and Next Links */
+  .pagination a:first-child,
+  .pagination a:last-child {
+    padding: 8px 12px; /* Adjust padding for previous and next links */
+  }
+  
+  /* Disabled Links */
+  .pagination span.disabled {
+    pointer-events: none; /* Disable interaction with disabled links */
+    color: #6c757d; /* Gray text color for disabled links */
+    background-color: #f8f9fa; /* Light gray background color for disabled links */
+    border: 1px solid #dee2e6; /* Light gray border for disabled links */
+  }
+  
+  </style>
+  <!-- 
+  <div class="blogs">
+     
+  </div> -->
+  <!-- Filter by Category -->
+  <div class="category-filter">
+    <ul>
+      <!-- <li>
+        <input
+          type="radio"
+          id="allCategories"
+          name="category"
+          value="all"
+          checked
+        />
+        <label for="allCategories">All Categories</label>
+      </li> -->
+      
+      <li>
+        <input
+          type="radio"
+          id="blog"
+          name="category"
+          value="blog"
+        />
+        <label for="blog">blog</label>
+      </li>
+      
+      <li>
+        <input
+          type="radio"
+          id="ai"
+          name="category"
+          value="ai"
+        />
+        <label for="ai">ai</label>
+      </li>
+      
+      <li>
+        <input
+          type="radio"
+          id="news"
+          name="category"
+          value="news"
+        />
+        <label for="news">news</label>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <!-- Display Blog Posts -->
+  <div class="blogs">
+    
+  </div>
+  
+  <!-- Pagination -->
+  <div class="pagination">
+    
+  </div>
+  
+  <script>
+    const categoryCheckboxes = document.querySelectorAll(
+      'input[name="category"]'
+    );
+    const blogs = document.querySelectorAll(".blogsChild");
+    console.log(Array.from(blogs));
+    categoryCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const selectedCategories = Array.from(
+          document.querySelectorAll('input[name="category"]:checked')
+        ).map((input) => input.value);
+  
+        blogs.forEach((blog) => {
+          const categories = blog.getAttribute("data-categories").split(",");
+          const isVisible = selectedCategories.some((selectedCategory) =>
+            categories.includes(selectedCategory)
+          );
+          console.log(categories);
+          if (isVisible || selectedCategories.includes("all")) {
+            blog.style.display = "block";
+          } else {
+            blog.style.display = "none";
+          }
+        });
+      });
+    });
+    
+  </script>
+  

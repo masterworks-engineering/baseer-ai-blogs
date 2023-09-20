@@ -3,6 +3,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 title: "" # the name of your site, e.g. ACME Corp.
 gems: [jekyll-paginate]
 # paginate_path: "/blog/page:num/"
-paginate: 2
+# Pagination
+paginate: 5 # Number of posts per page
+ # Pagination path
+
+# Categories
+
 plugins:
 - jekyll-paginate
