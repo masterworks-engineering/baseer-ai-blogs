@@ -6,6 +6,206 @@
     <title>Baseer</title>
     <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
   </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    /* ----- */
+  .blogs {
+    width: 50%;
+    margin: 2rem auto 5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blogs p,
+  .blogs b {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .blogs h1,
+  .blogs h2,
+  .blogs h3,
+  .blogs h4,
+  .blogs h5,
+  .blogs h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .title {
+    margin-bottom: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .author {
+    margin-top: 0.75rem;
+  }
+
+  .date {
+    margin-right: 1rem;
+  }
+
+  .category {
+    background-color: rgb(29, 105, 105);
+    padding: 0.3rem 0.5rem;
+    /* padding: 10px; */
+    border-radius: 3px;
+    text-transform: capitalize;
+    margin-right: 0.4rem;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+
+  .categorySelector {
+    width: 30%;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .categorySelectorChild {
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  .blogsChild {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem auto;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    /* width: 100%; */
+  }
+
+  .blogsChild p {
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .blogsChild:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  @media screen and (max-width: 980px) {
+    .blogs {
+      width: 80%;
+    }
+
+    .categorySelector {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .blogsChild p,
+    .blogsChild b {
+      font-size: 0.8em;
+    }
+    .blogsChild h2 {
+      font-size: 1.4em;
+    }
+
+    .categorySelectorChild {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .categorySelector {
+      width: 90%;
+    }
+  }
+
+  /* --Category Selector CSS-- */
+  .category-filter {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .category-filter ul {
+    list-style: none;
+    padding: 0
+  }
+
+  .category-filter li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .category-filter ul li a {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+  }
+
+  .category-filter input[type="radio"] {
+    display: none;
+  }
+
+  .category-filter input[type="radio"]:checked + label {
+    background-color: #06A0FF;
+    color: #fff;
+  }
+
+.category-filter ul li a.active {
+  background-color: #06A0FF;
+  color: #fff;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  list-style-type: none;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #06A0FF;
+  background-color: #f8f9fa; 
+  border: 1px solid #dee2e6; 
+  margin: 0 5px;
+  border-radius: 4px; 
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination a:hover {
+  background-color: #06A0FF; 
+  color: #fff; 
+  border-color: #06A0FF;
+}
+
+.pagination li.selected a{
+  background-color: #06A0FF;
+  color: #fff;
+  border-color: #06A0FF;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.pagination a:first-child,
+.pagination a:last-child {
+  padding: 8px 12px; 
+}
+
+.pagination span.disabled {
+  pointer-events: none; 
+  color: #6c757d; 
+  background-color: #f8f9fa; 
+  border: 1px solid #dee2e6; 
+}
+  </style>
   <body>
     <style>
   p,
@@ -527,351 +727,142 @@
   })
 </script>
 
-    <style>
-  body {
-    margin: 0%;
-    padding: 0%;
-  }
-
-  /* ----- */
-  .blogs {
-    width: 50%;
-    margin: 2rem auto 5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .blogs p,
-  .blogs b {
-    font-family: "Poppins", sans-serif;
-  }
-
-  .blogs h1,
-  .blogs h2,
-  .blogs h3,
-  .blogs h4,
-  .blogs h5,
-  .blogs h6 {
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .title {
-    margin-bottom: 0.8rem;
-    margin-top: 0.2rem;
-  }
-
-  .author {
-    margin-top: 0.75rem;
-  }
-
-  .date {
-    margin-right: 1rem;
-  }
-
-  .category {
-    background-color: rgb(29, 105, 105);
-    padding: 0.3rem 0.5rem;
-    /* padding: 10px; */
-    border-radius: 3px;
-    text-transform: capitalize;
-    margin-right: 0.4rem;
-  }
-
-  .pagination {
-    text-align: center;
-  }
-
-  .categorySelector {
-    width: 30%;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .categorySelectorChild {
-    padding: 0.5rem;
-    color: white;
-    display: flex;
-    align-items: center;
-  }
-
-  .blogsChild {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem auto;
-    padding: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 5px;
-    /* width: 100%; */
-  }
-
-  .blogsChild p {
-    text-align: justify;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .blogsChild:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-
-  @media screen and (max-width: 980px) {
-    .blogs {
-      width: 80%;
-    }
-
-    .categorySelector {
-      width: 70%;
-    }
-  }
-
-  @media screen and (max-width: 640px) {
-    .blogsChild p,
-    .blogsChild b {
-      font-size: 0.8em;
-    }
-    .blogsChild h2 {
-      font-size: 1.4em;
-    }
-
-    .categorySelectorChild {
-      font-size: 0.7rem;
-    }
-  }
-
-  @media screen and (max-width: 440px) {
-    .categorySelector {
-      width: 90%;
-    }
-  }
-
-  /* --Category Selector CSS-- */
-  .category-filter {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  .category-filter ul {
-    list-style: none;
-    padding: 0
-  }
-
-  .category-filter li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .category-filter ul li a {
-    cursor: pointer;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #000;
-  }
-
-  .category-filter input[type="radio"] {
-    display: none;
-  }
-
-  .category-filter input[type="radio"]:checked + label {
-    background-color: #06A0FF;
-    color: #fff;
-  }
-
-.category-filter ul li a.active {
-  background-color: #06A0FF;
-  color: #fff;
-}
-
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2.5rem;
-  list-style-type: none;
-}
-
-.pagination a,
-.pagination span {
-  display: inline-block;
-  padding: 10px 16px;
-  text-decoration: none;
-  color: #06A0FF;
-  background-color: #f8f9fa; 
-  border: 1px solid #dee2e6; 
-  margin: 0 5px;
-  border-radius: 4px; 
-  transition: background-color 0.3s ease-in-out;
-}
-
-.pagination a:hover {
-  background-color: #06A0FF; 
-  color: #fff; 
-  border-color: #06A0FF;
-}
-
-.pagination li.selected a{
-  background-color: #06A0FF;
-  color: #fff;
-  border-color: #06A0FF;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-}
-
-.pagination a:first-child,
-.pagination a:last-child {
-  padding: 8px 12px; 
-}
-
-.pagination span.disabled {
-  pointer-events: none; 
-  color: #6c757d; 
-  background-color: #f8f9fa; 
-  border: 1px solid #dee2e6; 
-}
-
-</style>
-
-<div class="category-filter">
-  <ul>
-    <!-- <li><a style="text-decoration: none;" href="/" >All Blogs</a></li> -->
-    
-      
-    
-      
-        <li>
-          <a style="text-decoration: none;" href="/tags/ai/index.html" >
-            AI
-          </a>            
-        </li>
-      
-    
-      
-        <li>
-          <a style="text-decoration: none;" href="/tags/computer-vision/index.html" >
-            Computer Vision
-          </a>            
-        </li>
-      
-    
-      
-        <li>
-          <a style="text-decoration: none;" href="/index.html" >
-            Baseer
-          </a>            
-        </li>
-      
-    
-      
-    
-      
-        <li>
-          <a style="text-decoration: none;" href="/tags/news/index.html" class="active">
-            News
-          </a>            
-        </li>
-      
-    
-  </ul>
-</div>
-
-
-
-<!-- Display Blog Posts -->
-<div class="blogs">
-  
-  <div class="blogsChild" data-categories="AI,News">
-    <div>
-      <div style="display: flex; align-items: center">
-        <p class="date">19 Sep 2023</p>
-
+    <div class="category-filter">
+      <ul>
+        <li><a style="text-decoration: none;" href="/" >All Blogs</a></li>
         
-        <p class="category" style="color: white">
-          AI
-        </p>
+          
         
-        <p class="category" style="color: white">
-          News
-        </p>
+          
+            <li>
+              <a style="text-decoration: none;" href="/tags/ai/index.html" >
+                AI
+              </a>            
+            </li>
+          
         
-
-      </div>
-      <a style="color: black; text-decoration: none" href="/2023/09/19/blog2/">
-        <h2 class="title">Blog2</h2>
-      </a>
+          
+            <li>
+              <a style="text-decoration: none;" href="/tags/computer-vision/index.html" >
+                Computer Vision
+              </a>            
+            </li>
+          
+        
+          
+        
+          
+        
+          
+            <li>
+              <a style="text-decoration: none;" href="/tags/news/index.html" class="active">
+                News
+              </a>            
+            </li>
+          
+        
+      </ul>
     </div>
-    <a style="color: black; text-decoration: none" href="/2023/09/19/blog2/">
-      <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+    
+    
+    
+    <!-- Display Blog Posts -->
+    <div class="blogs">
+      
+      <div class="blogsChild" data-categories="AI,News">
+        <div>
+          <div style="display: flex; align-items: center">
+            <p class="date">19 Sep 2023</p>
+    
+            
+            <p class="category" style="color: white">
+              AI
+            </p>
+            
+            <p class="category" style="color: white">
+              News
+            </p>
+            
+    
+          </div>
+          <a style="color: black; text-decoration: none" href="/2023/09/19/blog2/">
+            <h2 class="title">Blog2</h2>
+          </a>
+        </div>
+        <a style="color: black; text-decoration: none" href="/2023/09/19/blog2/">
+          <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
 et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
 
-    </a>
-    <p class="author">
-      By
-      <a target="_blank" href="https://linkedin.com/">Author</a>
-    </p>
-  </div>
-  
-  <div class="blogsChild" data-categories="News">
-    <div>
-      <div style="display: flex; align-items: center">
-        <p class="date">14 Sep 2023</p>
-
-        
-        <p class="category" style="color: white">
-          News
+        </a>
+        <p class="author">
+          By
+          <a target="_blank" href="https://linkedin.com/">Author</a>
         </p>
-        
-
       </div>
-      <a style="color: black; text-decoration: none" href="/2023/09/14/blog1/">
-        <h2 class="title">Blog</h2>
-      </a>
-    </div>
-    <a style="color: black; text-decoration: none" href="/2023/09/14/blog1/">
-      <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+      
+      <div class="blogsChild" data-categories="News">
+        <div>
+          <div style="display: flex; align-items: center">
+            <p class="date">14 Sep 2023</p>
+    
+            
+            <p class="category" style="color: white">
+              News
+            </p>
+            
+    
+          </div>
+          <a style="color: black; text-decoration: none" href="/2023/09/14/blog1/">
+            <h2 class="title">Blog</h2>
+          </a>
+        </div>
+        <a style="color: black; text-decoration: none" href="/2023/09/14/blog1/">
+          <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
 et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
 
-    </a>
-    <p class="author">
-      By
-      <a target="_blank" href="https://linkedin.com/">Author</a>
-    </p>
-  </div>
-  
-  <div class="blogsChild" data-categories="Computer Vision,news">
-    <div>
-      <div style="display: flex; align-items: center">
-        <p class="date">14 Sep 2023</p>
-
-        
-        <p class="category" style="color: white">
-          Computer Vision
+        </a>
+        <p class="author">
+          By
+          <a target="_blank" href="https://linkedin.com/">Author</a>
         </p>
-        
-        <p class="category" style="color: white">
-          news
-        </p>
-        
-
       </div>
-      <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
-        <h2 class="title">Title</h2>
-      </a>
+      
+      <div class="blogsChild" data-categories="Computer Vision,news">
+        <div>
+          <div style="display: flex; align-items: center">
+            <p class="date">14 Sep 2023</p>
+    
+            
+            <p class="category" style="color: white">
+              Computer Vision
+            </p>
+            
+            <p class="category" style="color: white">
+              news
+            </p>
+            
+    
+          </div>
+          <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+            <h2 class="title">Title</h2>
+          </a>
+        </div>
+        <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
+
+        </a>
+        <p class="author">
+          By
+          <a target="_blank" href="https://linkedin.com/">Author</a>
+        </p>
+      </div>
+      
     </div>
-    <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
-
-    </a>
-    <p class="author">
-      By
-      <a target="_blank" href="https://linkedin.com/">Author</a>
-    </p>
-  </div>
-  
-</div>
-
-<!-- Pagination -->
-
-</div>
-
+    
+    <!-- Pagination -->
+    
+    </div>
+    
 
     
 
