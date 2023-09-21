@@ -1,8 +1,9 @@
 ---
-title: "Blog"
+title: "Blog hhhh"
 date: 2023-09-14
 tags: 
     - News
+    - AI
 author: "Author"
 linkedinProfile: "https://linkedin.com/"
 layout: post
