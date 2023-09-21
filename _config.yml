@@ -26,7 +26,9 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-  
+
+plugins:
+- jekyll-paginate-v2
 # Collection configurations
 collections:
   biography:
