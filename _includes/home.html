@@ -203,9 +203,9 @@
 
 <div class="category-filter">
   <ul>
-    <li><a style="text-decoration: none;" href="/" {% if page.url == "/index.html" %}class="active"{% endif %}>All Blogs</a></li>
+    <!-- <li><a style="text-decoration: none;" href="/" {% if page.url == "/index.html" %}class="active"{% endif %}>All Blogs</a></li> -->
     {% for my_page in site.pages %}
-      {% if my_page.title and my_page.autogen == nil and my_page.autopage == nil and my_page.url!= "/index.html" %}
+      {% if my_page.title and my_page.autogen == nil and my_page.autopage == nil %}
         <li>
           <a style="text-decoration: none;" href="{{ my_page.url | relative_url }}" {% if page.url == my_page.url %}class="active"{% endif %}>
             {{ my_page.title | escape }}
