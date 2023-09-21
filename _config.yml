@@ -14,8 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Baseer
-description: > # this means to ignore newlines until "baseurl:"
-  Baseer
+description: ""
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -46,8 +45,9 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
+  indexpage: 'default'
  # extension: htm
- indexpage: 'default'
+#  indexpage: 'default'
   trail: 
     before: 2
     after: 2
