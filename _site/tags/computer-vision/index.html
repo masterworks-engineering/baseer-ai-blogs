@@ -1,138 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <title>Baseer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossOrigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        margin: 0%;
-        padding: 0%;
-      }
-
-      p,
-      b,
-      a {
-        font-family: "Poppins", sans-serif;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      div {
-        font-family: "Montserrat", sans-serif;
-      }
-
-      .container {
-        width: 50%;
-        margin: 6vh auto;
-      }
-
-      .container p:not(.date, .title, .author) {
-        font-size: 1.2em;
-        line-height: 1.5em;
-      }
-
-      .container p,
-      .container b {
-        font-family: "Poppins", sans-serif;
-      }
-
-      .category {
-        background-color: rgb(20, 88, 88);
-        padding: 0.1rem 0.3rem;
-        border-radius: 3px;
-        text-transform: capitalize;
-        margin-right: 0.4rem;
-      }
-
-      .tags {
-        display: flex;
-      }
-
-      .tags > p {
-        margin: 1.5rem 1rem 1.5rem 0rem;
-        padding: 0.5rem;
-        padding-left: 0;
-      }
-
-      .tag {
-        margin: 1rem 0.5rem;
-        padding: 0.5rem;
-        border-radius: 5px;
-      }
-
-      .container h1,
-      .container h2,
-      .container h3,
-      .container h4,
-      .container h5,
-      .container h6 {
-        font-family: "Montserrat", sans-serif;
-      }
-
-      .date,
-      .title,
-      .author {
-        text-align: center;
-      }
-
-      .title {
-        margin: 0.3rem auto;
-      }
-
-      .date {
-        opacity: 0.5;
-        margin-left: 1rem;
-      }
-
-      .author {
-        opacity: 0.7;
-        margin-top: 0;
-      }
-
-      .hr {
-        margin-bottom: 3rem;
-      }
-
-      @media screen and (max-width: 800px) {
-        .container {
-          width: 70%;
-        }
-      }
-
-      @media screen and (max-width: 640px) {
-        .container {
-          width: 80%;
-        }
-
-        .container p:not(.date, .title, .author) {
-          font-size: 0.8em;
-        }
-
-        .title {
-          font-size: 1.6em;
-        }
-
-        .date,
-        .author {
-          font-size: 0.8em;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
   </head>
   <body>
     <style>
@@ -660,68 +532,441 @@
   })
 </script>
 
+    <style>
+  body {
+    margin: 0%;
+    padding: 0%;
+  }
 
-    <div class="container">
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          width: fit-content;
-          margin: auto;
-          padding: 0;
-        "
-      >
-        <!-- <p class="category" style="color: white; margin: 0">
-          
-        </p> -->
+  /* ----- */
+  .blogs {
+    width: 50%;
+    margin: 2rem auto 5rem;
+    display: flex;
+    flex-direction: column;
+  }
 
-        
-        <p class="category" style="color: white">news</p>
-        
-        <p class="category" style="color: white">blog</p>
-        
+  .blogs p,
+  .blogs b {
+    font-family: "Poppins", sans-serif;
+  }
 
-        <p class="date">19 Sep 2023</p>
+  .blogs h1,
+  .blogs h2,
+  .blogs h3,
+  .blogs h4,
+  .blogs h5,
+  .blogs h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .title {
+    margin-bottom: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .author {
+    margin-top: 0.75rem;
+  }
+
+  .date {
+    margin-right: 1rem;
+  }
+
+  .category {
+    background-color: rgb(29, 105, 105);
+    padding: 0.3rem 0.5rem;
+    /* padding: 10px; */
+    border-radius: 3px;
+    text-transform: capitalize;
+    margin-right: 0.4rem;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+
+  .categorySelector {
+    width: 30%;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .categorySelectorChild {
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  .blogsChild {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem auto;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    /* width: 100%; */
+  }
+
+  .blogsChild p {
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .blogsChild:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  @media screen and (max-width: 980px) {
+    .blogs {
+      width: 80%;
+    }
+
+    .categorySelector {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .blogsChild p,
+    .blogsChild b {
+      font-size: 0.8em;
+    }
+    .blogsChild h2 {
+      font-size: 1.4em;
+    }
+
+    .categorySelectorChild {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .categorySelector {
+      width: 90%;
+    }
+  }
+
+  /* --Category Selector CSS-- */
+  .category-filter {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .category-filter ul {
+    list-style: none;
+    padding: 0
+  }
+
+  .category-filter li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .category-filter ul li a {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+  }
+
+  .category-filter input[type="radio"] {
+    display: none;
+  }
+
+  .category-filter input[type="radio"]:checked + label {
+    background-color: #06A0FF; /* Change this to your desired selected color */
+    color: #fff;
+  }
+
+  /* Add this CSS to your stylesheet */
+.category-filter ul li a.active {
+  background-color: #06A0FF;
+  color: #fff;
+}
+
+
+  /* -------- */
+/* Pagination Container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  list-style-type: none;
+}
+
+/* Pagination Links */
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #06A0FF; /* Blue text color for pagination links */
+  background-color: #f8f9fa; /* Light gray background color for pagination links */
+  border: 1px solid #dee2e6; /* Light gray border for pagination links */
+  margin: 0 5px;
+  border-radius: 4px; /* Rounded corners for pagination links */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Pagination Links: Hover State */
+.pagination a:hover {
+  background-color: #06A0FF; /* Darker blue background color for pagination links on hover */
+  color: #fff; /* White text color for pagination links on hover */
+  border-color: #06A0FF; /* Darker blue border for pagination links on hover */
+}
+
+/* Pagination Links: Active Page */
+.pagination li.selected a{
+  background-color: #06A0FF; /* Blue background color for the active page number */
+  color: #fff; /* White text color for the active page number */
+  border-color: #06A0FF; /* Blue border for the active page number */
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+/* Previous and Next Links */
+.pagination a:first-child,
+.pagination a:last-child {
+  padding: 8px 12px; /* Adjust padding for previous and next links */
+}
+
+/* Disabled Links */
+.pagination span.disabled {
+  pointer-events: none; /* Disable interaction with disabled links */
+  color: #6c757d; /* Gray text color for disabled links */
+  background-color: #f8f9fa; /* Light gray background color for disabled links */
+  border: 1px solid #dee2e6; /* Light gray border for disabled links */
+}
+
+</style>
+<!-- 
+<div class="blogs">
+  
+  <div class="blogsChild">
+    <div>
+      <div style="display: flex; align-items: center">
+        <p class="category" style="color: white"></p>
+        <p class="date">21 Sep 2023</p>
       </div>
-      <h1 class="title">Blog2</h1>
-      <p class="author">
-        Published by
-        <a target="_blank" href="https://linkedin.com/">
-          Author
-        </a>
-      </p>
-      <hr class="hr" />
-      <div><p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+      <a style="color: black; text-decoration: none" href="/2023/09/21/blog3/">
+        <h2 class="title">Blog3</h2>
+      </a>
+    </div>
+    <a style="color: black; text-decoration: none" href="/2023/09/21/blog3/">
+      <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
 et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
 
-<p>Lacus vel facilisis volutpat est velit egestas dui. Arcu dui vivamus arcu felis bibendum. Urna neque viverra justo nec ultrices dui sapien. Viverra nam libero justo laoreet sit amet cursus sit. Ut porttitor leo a diam sollicitudin. Cras tincidunt lobortis feugiat vivamus. Porttitor rhoncus dolor purus non enim praesent elementum. Semper risus in hendrerit gravida rutrum quisque non. In arcu cursus euismod quis. Duis ut diam quam nulla porttitor. Libero enim sed faucibus turpis. Risus nec feugiat in fermentum. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Nisi porta lorem mollis aliquam ut porttitor. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Praesent elementum facilisis leo vel fringilla est ullamcorper. In metus vulputate eu scelerisque. Tincidunt lobortis feugiat vivamus at augue eget.</p>
-
-<p>Est sit amet facilisis magna etiam tempor orci. Velit aliquet sagittis id consectetur purus ut faucibus. Penatibus et magnis dis parturient montes nascetur ridiculus. Lobortis feugiat vivamus at augue eget arcu. Sit amet dictum sit amet. Maecenas accumsan lacus vel facilisis. Posuere ac ut consequat semper viverra. Donec massa sapien faucibus et molestie. Vitae elementum curabitur vitae nunc sed velit dignissim sodales. Est placerat in egestas erat.</p>
-
-<p>Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Eget gravida cum sociis natoque penatibus et. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Arcu vitae elementum curabitur vitae. Ullamcorper dignissim cras tincidunt lobortis. Amet justo donec enim diam vulputate ut pharetra. Gravida rutrum quisque non tellus. Amet tellus cras adipiscing enim eu. Quis viverra nibh cras pulvinar mattis nunc sed. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dignissim suspendisse in est ante in nibh.</p>
-
-<p>Vulputate ut pharetra sit amet aliquam id diam maecenas ultricies. Eget velit aliquet sagittis id. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Lectus arcu bibendum at varius vel. Elit eget gravida cum sociis natoque penatibus et magnis. Sit amet mauris commodo quis imperdiet massa. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Diam sit amet nisl suscipit adipiscing bibendum est. In cursus turpis massa tincidunt. Ornare suspendisse sed nisi lacus. Tellus orci ac auctor augue. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. In mollis nunc sed id. Aenean et tortor at risus viverra adipiscing at in tellus. Ut ornare lectus sit amet est placerat in egestas erat. Pulvinar proin gravida hendrerit lectus a. Feugiat pretium nibh ipsum consequat nisl vel pretium. Ut etiam sit amet nisl purus in mollis. Est ultricies integer quis auctor elit sed vulputate.</p>
-</div>
-      <!-- <hr style="margin-top: 2rem" /> -->
-      <!-- <div class="tags">
-        <p>Tags :</p>
-         
-        <p class="tag">news</p>
-        
-        <p class="tag">blog</p>
-          -->
-
-      <!-- <p class="tag">news, blog</p> -->
-      <!-- {blog.attributes.tags &&
-      blog.attributes.tags.map((tag: string, index: number) => {
-        return (
-          <p class={styles.tag} key={`${tag} ${index}`}>
-            {tag}
-          </p>
-        );
-      })} -->
-      <!-- </div> -->
+    </a>
+    <p class="author">
+      By
+      <a target="_blank" href="https://linkedin.com/">Author</a>
+    </p>
+  </div>
+  
+  <div class="blogsChild">
+    <div>
+      <div style="display: flex; align-items: center">
+        <p class="category" style="color: white"></p>
+        <p class="date">14 Sep 2023</p>
+      </div>
+      <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+        <h2 class="title">Title</h2>
+      </a>
     </div>
+    <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
+
+    </a>
+    <p class="author">
+      By
+      <a target="_blank" href="https://linkedin.com/">Author</a>
+    </p>
+  </div>
+   
+</div> -->
+<!-- Filter by Category -->
+<!-- <div class="category-filter">
+  <ul>
+      
+
+  
+
+<li>
+  <a style="text-decoration: none;" href="/tags/ai/index.html">
+  <label for="AI">AI</label>
+</a>
+</li>
+
+  
+
+<li>
+  <a style="text-decoration: none;" href="/tags/computer-vision/index.html">
+  <label for="Computer Vision">Computer Vision</label>
+</a>
+</li>
+
+  
+
+<li>
+  <a style="text-decoration: none;" href="/index.html">
+  <label for="Home">Home</label>
+</a>
+</li>
+
+  
+
+  
+
+<li>
+  <a style="text-decoration: none;" href="/tags/news/index.html">
+  <label for="News">News</label>
+</a>
+</li>
+
+
+  </ul>
+</div> -->
+<div class="category-filter">
+  <ul>
+    <li><a style="text-decoration: none;" href="/" >All Blogs</a></li>
+    
+      
+    
+      
+        <li>
+          <a style="text-decoration: none;" href="/tags/ai/index.html" >
+            AI
+          </a>            
+        </li>
+      
+    
+      
+        <li>
+          <a style="text-decoration: none;" href="/tags/computer-vision/index.html" class="active">
+            Computer Vision
+          </a>            
+        </li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+          <a style="text-decoration: none;" href="/tags/news/index.html" >
+            News
+          </a>            
+        </li>
+      
+    
+  </ul>
+</div>
+
+
+
+<!-- Display Blog Posts -->
+<div class="blogs">
+  
+  <div class="blogsChild" data-categories="Computer Vision">
+    <div>
+      <div style="display: flex; align-items: center">
+        <p class="date">21 Sep 2023</p>
+
+        
+        <p class="category" style="color: white">
+          Computer Vision
+        </p>
+        
+
+      </div>
+      <a style="color: black; text-decoration: none" href="/2023/09/21/blog3/">
+        <h2 class="title">Blog3</h2>
+      </a>
+    </div>
+    <a style="color: black; text-decoration: none" href="/2023/09/21/blog3/">
+      <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
+
+    </a>
+    <p class="author">
+      By
+      <a target="_blank" href="https://linkedin.com/">Author</a>
+    </p>
+  </div>
+  
+  <div class="blogsChild" data-categories="Computer Vision,news">
+    <div>
+      <div style="display: flex; align-items: center">
+        <p class="date">14 Sep 2023</p>
+
+        
+        <p class="category" style="color: white">
+          Computer Vision
+        </p>
+        
+        <p class="category" style="color: white">
+          news
+        </p>
+        
+
+      </div>
+      <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+        <h2 class="title">Title</h2>
+      </a>
+    </div>
+    <a style="color: black; text-decoration: none" href="/2023/09/14/title/">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
+
+    </a>
+    <p class="author">
+      By
+      <a target="_blank" href="https://linkedin.com/">Author</a>
+    </p>
+  </div>
+  
+</div>
+
+<!-- Pagination -->
+
+</div>
+
+<!-- <script>
+  const categoryCheckboxes = document.querySelectorAll(
+    'input[name="category"]'
+  );
+  const blogs = document.querySelectorAll(".blogsChild");
+  console.log(Array.from(blogs));
+  categoryCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const selectedCategories = Array.from(
+        document.querySelectorAll('input[name="category"]:checked')
+      ).map((input) => input.value);
+
+      blogs.forEach((blog) => {
+        const categories = blog.getAttribute("data-categories").split(",");
+        const isVisible = selectedCategories.some((selectedCategory) =>
+          categories.includes(selectedCategory)
+        );
+        console.log(categories);
+        if (isVisible || selectedCategories.includes("all")) {
+          blog.style.display = "block";
+        } else {
+          blog.style.display = "none";
+        }
+      });
+    });
+  });
+  
+</script> -->
+
+
+    
+
+  
     <style>
     .footer {
   display: flex;
@@ -945,5 +1190,6 @@ div {
       </div>
     </div>
   </div>
+
   </body>
 </html>

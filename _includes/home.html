@@ -129,11 +129,12 @@
     margin-right: 10px;
   }
 
-  .category-filter label {
+  .category-filter ul li a {
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    color: #000;
   }
 
   .category-filter input[type="radio"] {
@@ -145,6 +146,13 @@
     color: #fff;
   }
 
+  /* Add this CSS to your stylesheet */
+.category-filter ul li a.active {
+  background-color: #06A0FF;
+  color: #fff;
+}
+
+
   /* -------- */
 /* Pagination Container */
 .pagination {
@@ -152,6 +160,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2.5rem;
+  list-style-type: none;
 }
 
 /* Pagination Links */
@@ -176,11 +185,10 @@
 }
 
 /* Pagination Links: Active Page */
-.pagination em {
+.pagination li.selected a{
   background-color: #06A0FF; /* Blue background color for the active page number */
   color: #fff; /* White text color for the active page number */
   border-color: #06A0FF; /* Blue border for the active page number */
-  padding: 10px 16px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
 }
@@ -245,31 +253,35 @@
   {% endif %}
 </div> -->
 <!-- Filter by Category -->
+<!-- <div class="category-filter">
+  <ul>
+    {% for my_page in site.pages %}  
+{% if my_page.title and my_page.autogen == nil and my_page.autopage == nil %}
+<li>
+  <a style="text-decoration: none;" href="{{ my_page.url | relative_url }}">
+  <label for="{{ my_page.title }}">{{ my_page.title | escape }}</label>
+</a>
+</li>
+{% endif %}
+{% endfor %}
+  </ul>
+</div> -->
 <div class="category-filter">
   <ul>
-    <!-- <li>
-      <input
-        type="radio"
-        id="allCategories"
-        name="category"
-        value="all"
-        checked
-      />
-      <label for="allCategories">All Categories</label>
-    </li> -->
-    {% for category in site.tags %}
-    <li>
-      <input
-        type="radio"
-        id="{{ category[0] }}"
-        name="category"
-        value="{{ category[0] }}"
-      />
-      <label for="{{ category[0] }}">{{ category[0] }}</label>
-    </li>
+    <li><a style="text-decoration: none;" href="/" {% if page.url == "/index.html" %}class="active"{% endif %}>All Blogs</a></li>
+    {% for my_page in site.pages %}
+      {% if my_page.title and my_page.autogen == nil and my_page.autopage == nil and my_page.url!= "/index.html" %}
+        <li>
+          <a style="text-decoration: none;" href="{{ my_page.url | relative_url }}" {% if page.url == my_page.url %}class="active"{% endif %}>
+            {{ my_page.title | escape }}
+          </a>            
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
+
+
 
 <!-- Display Blog Posts -->
 <div class="blogs">
@@ -302,28 +314,77 @@
 </div>
 
 <!-- Pagination -->
-<div class="pagination">
-  {% if paginator.total_pages > 1 %} {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
-  {% else %}
-  <span>&laquo; Prev</span>
-  {% endif %} {% for page in (1..paginator.total_pages) %} {% if page ==
-  paginator.page %}
-  <em>{{ page }}</em>
-  {% elsif page == 1 %}
-  <a href="{{ '/' | relative_url }}">{{ page }}</a>
-  {% else %}
-  <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}"
-    >{{ page }}</a
-  >
-  {% endif %} {% endfor %} {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-  {% else %}
-  <span>Next &raquo;</span>
-  {% endif %} {% endif %}
+{% if paginator.total_pages > 1 %}
+  <!-- <ul class="pagination">
+      {% if paginator.first_page %}
+      <li class="previous">
+          <a href="{{ paginator.first_page_path | prepend: site.baseurl | replace: '//', '/' }}">First</a>
+      </li>
+      {% endif %}
+
+      {% if paginator.previous_page %}
+      <li class="previous">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+
+      {% if paginator.page_trail %}
+        {% for trail in paginator.page_trail %}
+          <li {% if page.url == trail.path %}class="selected"{% endif %}>
+              <a href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}" title="{{trail.title}}">{{ trail.num }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+
+      {% if paginator.next_page %}
+      <li class="next">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+
+       {% if paginator.last_page %}
+      <li class="previous">
+          <a href="{{ paginator.last_page_path | prepend: site.baseurl | replace: '//', '/' }}">Last</a>
+      </li>
+      {% endif %}
+  </ul> -->
+  <ul class="pagination">
+  <!-- {% if paginator.first_page %}
+  <li class="previous">
+    <a href="{{ paginator.first_page_path | prepend: site.baseurl | replace: '//', '/' }}">First</a>
+  </li>
+  {% endif %} -->
+
+  {% if paginator.previous_page %}
+  <li class="previous">
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Prev</a>
+  </li>
+  {% endif %}
+
+  {% if paginator.page_trail %}
+  {% for trail in paginator.page_trail %}
+  <li {% if page.url == trail.path %}class="selected"{% endif %}>
+    <a href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}" title="{{trail.title}}">{{ trail.num }}</a>
+  </li>
+  {% endfor %}
+  {% endif %}
+
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rarr;</a>
+  </li>
+  {% endif %}
+
+  <!-- {% if paginator.last_page %}
+  <li class="previous">
+    <a href="{{ paginator.last_page_path | prepend: site.baseurl | replace: '//', '/' }}">Last</a>
+  </li>
+  {% endif %} -->
+</ul>
+  {% endif %}
 </div>
 
-<script>
+<!-- <script>
   const categoryCheckboxes = document.querySelectorAll(
     'input[name="category"]'
   );
@@ -350,4 +411,4 @@
     });
   });
   
-</script>
+</script> -->

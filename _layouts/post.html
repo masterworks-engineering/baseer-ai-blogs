@@ -150,10 +150,16 @@
         <!-- <p class="category" style="color: white; margin: 0">
           {{ page.category }}
         </p> -->
+<!-- 
+        {% for tag in page.tags %}
+         <a class="category" style="text-decoration: none; color: white;" href="/tags/{{tag}}"> {{ tag }} </a>
+        {% endfor %} -->
 
         {% for tag in page.tags %}
-        <p class="category" style="color: white">{{ tag }}</p>
+          {% assign tagWithHyphens = tag | replace: ' ', '-' %}
+            <a class="category" style="text-decoration: none; color: white;" href="/tags/{{ tagWithHyphens }}"> {{ tag }} </a>
         {% endfor %}
+
 
         <p class="date">{{ page.date | date_to_string }}</p>
       </div>
