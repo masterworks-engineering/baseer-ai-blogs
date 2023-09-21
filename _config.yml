@@ -29,16 +29,6 @@ plugins:
 - jekyll-feed
 - jekyll-paginate-v2
 # Collection configurations
-collections:
-  biography:
-    output: true
-    permalink: /biography/:path/
-  fantasy:
-    output: true
-    permalink: /fantasy/:path/
-  romance: 
-    output: true
-    permalink: /romance/:path/
 
  # Causes B+W tag to show up as it is written on the terry-pratchet-diary-2017.md page and not lowercase
     
@@ -57,7 +47,7 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
  # extension: htm
- # indexpage: 'default'
+ indexpage: 'default'
   trail: 
     before: 2
     after: 2
