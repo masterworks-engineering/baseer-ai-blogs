@@ -227,7 +227,7 @@
     
     <!-- Display Blog Posts -->
     <div class="blogs">
-      {% for post in site.posts %}
+      {% for post in paginator.posts %}
       <div class="blogsChild" data-categories="{{ post.tags | join: ',' }}">
         <div>
           <div style="display: flex; align-items: center">
